@@ -9,8 +9,6 @@ import{ GlobalConstants } from './constants/global-constants';
 export class AppComponent {
   title = 'Sarthak Negi';
   images = [
-    GlobalConstants.BACKGROUND_IMAGE_1,
-    GlobalConstants.BACKGROUND_IMAGE_2,
     GlobalConstants.PROFILE_IMG,
   ];
   showLoader = true;
@@ -29,7 +27,6 @@ export class AppComponent {
 
   async loadImages() {
     const imageLoadPromisesArray = this.images.map((image) => {
-      console.log(`Trying to load ${image}`);
       let img = new Image();
       img.src = image;
       return this.getIsImageLoaded(img);
