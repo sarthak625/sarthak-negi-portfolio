@@ -1,0 +1,22 @@
+.container {
+    .navbar {
+        #navbarText {
+            .navbar-nav {
+                .nav-item {
+                    i:hover {
+                        color: #673ab7 !important;
+                    }
+                    button {
+                        i {
+                            margin-right: 10px;
+                            margin-bottom: 2px;
+                        }
+                        i:hover {
+                            color: #ffff !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

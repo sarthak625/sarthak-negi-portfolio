@@ -1,5 +1,21 @@
-.main { 
-    #info {
-        float: left;
+.main {
+    margin-top: 60px;
+    .row {
+        #info {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: baseline;
+            padding-left: 30px;
+        }
+        #picture {
+            display: flex;
+            justify-content: center;
+            img {
+                width: 250px;
+                height: 250px;
+                border-radius: 50%;
+            }
+        }
     }
 }

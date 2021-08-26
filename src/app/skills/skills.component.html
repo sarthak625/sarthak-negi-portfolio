@@ -1,1 +1,10 @@
-<p>skills works!</p>
+<div class="container skills">
+    <div class="skills">
+        <h3>I am experienced with</h3>
+        <mat-chip-list cdkDropList cdkDropListOrientation="horizontal">
+            <mat-chip cdkDrag *ngFor="let skill of skills" color="accent" selected>
+                {{skill.name}}
+            </mat-chip>
+        </mat-chip-list>
+    </div>
+</div>

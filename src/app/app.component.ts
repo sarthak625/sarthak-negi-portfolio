@@ -16,26 +16,35 @@ export class AppComponent {
   showLoader = true;
 
   getIsImageLoaded(img: any) {
-    return new Promise((resolve, _reject) => {
+    return new Promise((resolve, reject) => {
       img.onload = () => {
         resolve(true);
       };
 
       img.onerror = () => {
-        resolve(false);
+        reject(`Could not load ${img.src}`);
       };
     })
   }
 
   async loadImages() {
-    for(let i = 0; i < this.images.length; i++){
-      console.log(`Trying to load ${this.images[i]}`);
+    const imageLoadPromisesArray = this.images.map((image) => {
+      console.log(`Trying to load ${image}`);
       let img = new Image();
-      img.src = this.images[i];
-      const isLoaded = await this.getIsImageLoaded(img);
-      console.log(`Image loaded ${isLoaded} at index ${i}`);
-    }
-    this.showLoader = false;
+      img.src = image;
+      return this.getIsImageLoaded(img);
+    });
+
+    Promise.all(imageLoadPromisesArray)
+      .then((_result) => {
+        this.showLoader = false;
+      })
+      .catch((err) => {
+        console.error('Some error occurred while trying to load the images');
+        console.error(err);
+        // Continue to the website with not loaded images
+        this.showLoader = false;
+      });
   }
 
   ngOnInit() {
