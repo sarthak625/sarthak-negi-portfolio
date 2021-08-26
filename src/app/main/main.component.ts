@@ -24,17 +24,17 @@ import { trigger, style, transition, animate, keyframes, query,
 })
 export class MainComponent implements OnInit {
   profilePicture = GlobalConstants.PROFILE_IMG;
-  specializesIn = GlobalConstants.SPECIALIZATIONS;
+  workedWith = GlobalConstants.WORKED_WITH;
   randomIndex = 0;
   constructor() { }
 
   ngOnInit(): void {
     setInterval( () =>{
       this.randomIndex ++;
-      if (this.randomIndex >= this.specializesIn.length) {
+      if (this.randomIndex >= this.workedWith.length) {
         this.randomIndex = 0;
       }
-    }, 1000);
+    }, 2000);
   }
 
 }
